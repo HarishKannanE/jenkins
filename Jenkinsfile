@@ -9,21 +9,29 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo 'Running build...'
-                sh 'echo "Build step placeholder"'
+                echo 'Running python hello world script...'
+                sh 'python3 test_script.py'
             }
         }
-        stage('test') {
-            steps {
-                echo 'Running test...'
-                sh 'echo "Running step placeholder"'
-            }
+        //stage('test') {
+        //    steps {
+        //        echo 'Running test...'
+        //        sh 'echo "Running step placeholder"'
+        //    }
+        //}
+        //stage('archive') {
+        //    steps {
+        //        echo 'Archiing...'
+        //        archiveArtifacts artifacts: '**/*.txt', fingerprint: true
+        //    }
+        //}
+    }
+    post {
+        success {
+            echo 'Job completed successfully.'
         }
-        stage('archive') {
-            steps {
-                echo 'Archiing...'
-                archiveArtifacts artifacts: '**/*.txt', fingerprint: true
-            }
+        failure {
+            echo 'Job failed, something went wrong.'
         }
     }
 }
