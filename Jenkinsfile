@@ -13,12 +13,12 @@ pipeline {
                 sh 'python3 test_script.py'
             }
         }
-        //stage('test') {
-        //    steps {
-        //        echo 'Running test...'
-        //        sh 'echo "Running step placeholder"'
-        //    }
-        //}
+        stage('test') {
+            steps {
+                echo 'Running test...'
+                sh 'python3 -m unittest test_script.py'
+            }
+        }
         //stage('archive') {
         //    steps {
         //        echo 'Archiing...'
